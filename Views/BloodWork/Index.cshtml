@@ -1,0 +1,47 @@
+﻿@using System.Linq
+@model  IEnumerable<MedChartApp.Models.BloodWork>
+
+@{
+    ViewBag.Title = "Blood Work";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table id="table" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Document </th>
+                        <th>Created Date</th>
+                        <th>Exam Date</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.Any())
+                    {
+                        <text> You have no Blood Work History. Create a new one!</text>
+                    }
+                    else
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.ActionLink("Details",  "Details",  "BloodWork",  new {  id = item.Id },  null)</td>
+                                <td>@item.DateCreated.ToString("d MMM yyyy") </td>
+                                <td>@item.ExamDate.ToString("d MMM yyyy")</td>
+                                <td>@item.Description</td>
+                            </tr>
+                        }
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+    
+
+
