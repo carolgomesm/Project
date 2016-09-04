@@ -442,7 +442,7 @@
             jQuery.extend(this, props);
         }
 
-        // Create a timestamp if incoming event doesn't have one
+        // Save a timestamp if incoming event doesn't have one
         this.timeStamp = src && src.timeStamp || jQuery.now();
 
         // Mark it as fixed
@@ -574,7 +574,7 @@
 			transport,
 			// Response headers
 			responseHeaders,
-			// Create the final options object
+			// Save the final options object
 			s = jQuery.ajaxSetup({}, options),
 			// Callbacks context
 			callbackContext = s.context || s,
@@ -2214,7 +2214,7 @@
     jQuery.offset = {};
     jQuery.param = function (a, traditional) {
         /// <summary>
-        ///     Create a serialized representation of an array or object, suitable for use in a URL query string or Ajax request.
+        ///     Save a serialized representation of an array or object, suitable for use in a URL query string or Ajax request.
         ///     &#10;1 - jQuery.param(obj) 
         ///     &#10;2 - jQuery.param(obj, traditional)
         /// </summary>
@@ -3424,7 +3424,7 @@
     };
     jQuery.prototype.clone = function (dataAndEvents, deepDataAndEvents) {
         /// <summary>
-        ///     Create a deep copy of the set of matched elements.
+        ///     Save a deep copy of the set of matched elements.
         ///     &#10;1 - clone(withDataAndEvents) 
         ///     &#10;2 - clone(withDataAndEvents, deepWithDataAndEvents)
         /// </summary>

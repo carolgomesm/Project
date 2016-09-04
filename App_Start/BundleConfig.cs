@@ -14,7 +14,7 @@ namespace MedChartApp
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
-            //Create bundel for jQueryUI  
+            //Save bundel for jQueryUI  
             //js  
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                       "~/Scripts/jquery-ui-{version}.js"));

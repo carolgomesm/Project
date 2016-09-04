@@ -40,7 +40,50 @@ namespace MedChartApp.Controllers
 
         public ActionResult New()
         {
+
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Save(BloodWork bloodWork)
+        {
+            if (bloodWork.Id == 0)
+            {
+                bloodWork.DateCreated = DateTime.UtcNow;
+                _context.BloodWork.Add(bloodWork);
+            }
+            else
+            {
+                var bloodWorkInDb = _context.BloodWork.Single(b => b.Id == bloodWork.Id);
+
+                //Update each field
+                bloodWorkInDb.ExamDate = bloodWork.ExamDate;
+                bloodWorkInDb.ResultDate = bloodWork.ResultDate;
+                bloodWorkInDb.Hematocrit = bloodWork.Hematocrit;
+                bloodWorkInDb.Hemoglobin = bloodWork.Hemoglobin;
+                bloodWorkInDb.MCV = bloodWork.MCV;
+                bloodWorkInDb.MCHC = bloodWork.MCHC;
+                bloodWorkInDb.RDW = bloodWork.RDW;
+                bloodWorkInDb.WhiteBloodCellCount = bloodWork.WhiteBloodCellCount;
+                bloodWorkInDb.RedBloodCellCount = bloodWork.RedBloodCellCount;
+                bloodWorkInDb.PlateletCount = bloodWork.PlateletCount;
+
+
+
+
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction("Index", "BloodWork");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var result = _context.BloodWork.SingleOrDefault(c => c.Id == id);
+
+            if (result == null) return HttpNotFound();
+
+            return View("New",  result);
         }
     }
 }

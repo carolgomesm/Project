@@ -33,8 +33,30 @@ textarea {
     padding-top: 5px;
 }
 
-#table th {
+.form-actions {
+    margin: 0;
+    background-color: transparent;
     text-align: center;
+}
+
+#newBtn {
+    width: 100px;
+    font-size: 16px;
+}
+
+#table th, td {
+    text-align: center;
+}
+
+#table td {
+    text-align: center;
+    font-size: 17px;
+}
+
+#table th {
+    font-size: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 #description {

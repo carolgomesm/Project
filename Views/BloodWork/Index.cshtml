@@ -12,23 +12,38 @@
             <table class="table table-hover ">
                 <thead>
                 <tr>
-                        <th>Document </th>
-                        <th>Created Date</th>
-                        <th>Exam Date</th>
-                        <th>Description</th>
-                    </tr>
+                    <div class="form-actions">
+                        <a id="newBtn" href="/BloodWork/New" class="btn btn-success">New</a>
+                    </div>
+                </tr>
+                <tr>
+                    <th>Document </th>
+                    <th>Created On</th>
+                    <th>Exam Date</th>
+                    <th>Description</th>
+                </tr>
                 </thead>
                 <tbody>
                     @if (!Model.Any())
                     {
-                        <text> You have no Blood Work History. Create a new one!</text>
+                        <text> You have no Blood Work History. Save a new one!</text>
                     }
                     else
                     {
                         foreach (var item in Model)
                         {
                             <tr>
-                                <td>@Html.ActionLink("Details",  "Details",  "BloodWork",  new {  id = item.Id },  null)</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class ="glyphicon glyphicon-cog"></span>  <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>@Html.ActionLink("Details", "Details", "BloodWork", new { id = item.Id }, null)</li>
+                                            <li>@Html.ActionLink("Edit", "Edit", "BloodWork", new { id = item.Id }, null)</li>
+                                        </ul>
+                                    </div>
+                                </td>
                                 <td>@item.DateCreated.ToString("dd/M/yy") </td>
                                 <td>@item.ExamDate.ToString("dd/M/yy")</td>
                                 <td>@item.Description</td>
