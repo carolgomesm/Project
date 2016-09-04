@@ -5,6 +5,22 @@
     ViewBag.Title = "Blood Work";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $(".table")
+                .DataTable({
+                    "scrollX": false,
+                    "info": false,
+                    "sDom": '<"row view-filter"<"col-sm-12"<"pull-left"l><"pull-right"f><"clearfix">>>t<"row view-pager"<"col-sm-12"<"text-center"ip>>>',
+                    "autoWidth": true,
+                    "aLengthMenu": [[5, 10, 20,-1],  [5, 10, 20, "All"]],
+                    "pageLength": 5
+         });
+        });
+    </script>
+}
 <div class="form-actions">
     <a id="newBtn" href="/BloodWork/New" class="btn btn-success">New</a>
 </div>
@@ -54,22 +70,7 @@
     </div>
 </div>
 
-@section scripts
-{
-    <script>
-        $(document).ready(function () {
-            $(".table")
-                .DataTable({
-                    "scrollX": false,
-                    "info": false,
-                    "sDom": '<"row view-filter"<"col-sm-12"<"pull-left"l><"pull-right"f><"clearfix">>>t<"row view-pager"<"col-sm-12"<"text-center"ip>>>',
-                    "autoWidth": true,
-                    "aLengthMenu": [[5, 10, 20,-1],  [5, 10, 20, "All"]],
-                    "pageLength": 5,
-         });
-        });
-    </script>
-}
+
 
     
 
