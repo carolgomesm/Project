@@ -29,8 +29,8 @@
                         {
                             <tr>
                                 <td>@Html.ActionLink("Details",  "Details",  "BloodWork",  new {  id = item.Id },  null)</td>
-                                <td>@item.DateCreated.ToString("d MMM yyyy") </td>
-                                <td>@item.ExamDate.ToString("d MMM yyyy")</td>
+                                <td>@item.DateCreated.ToString("dd/M/yy") </td>
+                                <td>@item.ExamDate.ToString("dd/M/yy")</td>
                                 <td>@item.Description</td>
                             </tr>
                         }

@@ -36,6 +36,11 @@ namespace MedChartApp.Controllers
             if (result == null) return HttpNotFound();
 
             return View(result);
-        }               
+        }
+
+        public ActionResult New()
+        {
+            return View();
+        }
     }
 }

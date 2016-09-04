@@ -83,3 +83,6 @@ C:\Users\chrischu\Desktop\MedChart\MedChartApp\MedChartApp\obj\Debug\MedChartApp
 C:\Users\chrischu\Desktop\MedChart\MedChartApp\MedChartApp\obj\Debug\MedChartApp.Migrations.InitialModel.resources
 C:\Users\chrischu\Desktop\MedChart\MedChartApp\MedChartApp\obj\Debug\MedChartApp.csproj.GenerateResource.Cache
 C:\Users\chrischu\Desktop\MedChart\MedChartApp\MedChartApp\obj\Debug\MedChartApp.Migrations.AddRequiredFields.resources
+C:\Users\chrischu\Desktop\MedChart\MedChartApp\MedChartApp\obj\Debug\MedChartApp.Migrations.AddDisplayName.resources
+C:\Users\chrischu\Desktop\MedChart\MedChartApp\MedChartApp\obj\Debug\MedChartApp.Migrations.ChangeDateTime.resources
+C:\Users\chrischu\Desktop\MedChart\MedChartApp\MedChartApp\obj\Debug\MedChartApp.Migrations.ChangeDateTime1.resources
