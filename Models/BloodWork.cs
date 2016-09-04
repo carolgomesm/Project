@@ -19,30 +19,36 @@ namespace MedChartApp.Models
         public DateTime ExamDate { get; set; }
 
         [Required]
-       [ DisplayName("Result Date")]
+        [DisplayName("Result Date")]
         public DateTime ResultDate { get; set; }
 
         [Required]
         public string Description { get; set; }
 
         [Required]
+        [Range(120, 180)]
         public double Hemoglobin { get; set; }
 
         [Required]
+        [Range(0.370, 0.500)]
         public double Hematocrit { get; set; }
 
         [Required]
+        [Range(4, 10)]
         [DisplayName("White Blood Cell ")]
         public double WhiteBloodCellCount { get; set; }
 
         [Required]
         [DisplayName("Red Blood Cell ")]
+        [Range(4, 10)]
         public double RedBloodCellCount { get; set; }
 
         [Required]
+        [Range(80, 95)]
         public double MCV { get; set; }
 
         [Required]
+        [Range(80, 95)]
         public double MCHC { get; set; }
 
         [Required]
@@ -50,6 +56,7 @@ namespace MedChartApp.Models
 
         [Required]
         [DisplayName("Patelet ")]
+        [Range(150,400)]
         public double PlateletCount { get; set; }
     }
 

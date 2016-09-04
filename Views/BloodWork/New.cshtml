@@ -3,8 +3,9 @@
     ViewBag.Title = "New";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@section Scripts {
-
+@section scripts {
+        
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/jqueryui")
     @Styles.Render("~/Content/cssjqryUi")
 
@@ -30,12 +31,14 @@
                     <div class="form-group">
                         @Html.LabelFor(a => a.ExamDate)
                         @Html.TextBoxFor(a => a.ExamDate, "{0: dd/M/yy}" , new { @class = "form-control date",  id = "date" })
+                        @Html.ValidationMessageFor(a => a.ExamDate)
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12 col-lg-6">
                     <div class="form-group">
                         @Html.LabelFor(a => a.ResultDate)
-                        @Html.TextBoxFor(a => a.ResultDate, new { @class = "form-control date", id = "resultDate" })
+                        @Html.TextBoxFor(a => a.ResultDate, "{0: dd/M/yy}" , new { @class = "form-control date", id = "resultDate" })
+                        @Html.ValidationMessageFor(a => a.ResultDate)
                     </div>
                 </div>
             </div>
@@ -44,6 +47,7 @@
                     <div class="form-group">
                         @Html.LabelFor(a => a.Description)
                         @Html.TextAreaFor(a => a.Description, new { @class = "form-control",  id = "description" })
+                        @Html.ValidationMessageFor(a => a.Description)
                     </div>
                 </div>
             </div>
@@ -52,24 +56,28 @@
                     <div class="form-group">
                         @Html.LabelFor(a => a.Hemoglobin)
                         @Html.TextBoxFor(a => a.Hemoglobin, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(a => a.Hemoglobin)
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-12 col-lg-3">
                     <div class="form-group">
                         @Html.LabelFor(a => a.Hematocrit)
                         @Html.TextBoxFor(a => a.Hematocrit, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(a => a.Hematocrit)
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-12 col-lg-3">
                     <div class="form-group">
                         @Html.LabelFor(a => a.WhiteBloodCellCount)
                         @Html.TextBoxFor(a => a.WhiteBloodCellCount, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(a => a.WhiteBloodCellCount)
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-12 col-lg-3">
                     <div class="form-group">
                         @Html.LabelFor(a => a.RedBloodCellCount)
                         @Html.TextBoxFor(a => a.RedBloodCellCount, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(a => a.RedBloodCellCount)
                     </div>
                 </div>
             </div>
@@ -78,33 +86,39 @@
                     <div class="form-group">
                         @Html.LabelFor(a => a.MCV)
                         @Html.TextBoxFor(a => a.MCV, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(a => a.MCV)
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-12 col-lg-3">
                     <div class="form-group">
                         @Html.LabelFor(a => a.MCHC)
                         @Html.TextBoxFor(a => a.MCHC, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(a => a.MCHC)
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-12 col-lg-3">
                     <div class="form-group">
                         @Html.LabelFor(a => a.RDW)
                         @Html.TextBoxFor(a => a.RDW, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(a => a.RDW)
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-12 col-lg-3">
                     <div class="form-group">
                         @Html.LabelFor(a => a.PlateletCount)
                         @Html.TextBoxFor(a => a.PlateletCount, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(a => a.PlateletCount)
                     </div>
                 </div>
             </div>
             @Html.HiddenFor(a => a.Id)
+            @Html.AntiForgeryToken()
             <button type="submit" class="btn btn-primary">Save</button>
             <a href="/BloodWork/Index" class="btn btn-danger">Cancel</a>
         }
     </div>
 </div>
+
 
 
   

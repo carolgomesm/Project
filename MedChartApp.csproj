@@ -222,6 +222,10 @@
     <Compile Include="Migrations\201609040408521_ChangeDateTime1.Designer.cs">
       <DependentUpon>201609040408521_ChangeDateTime1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609041558361_AddRange.cs" />
+    <Compile Include="Migrations\201609041558361_AddRange.Designer.cs">
+      <DependentUpon>201609041558361_AddRange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BloodWork.cs" />
@@ -380,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609040408521_ChangeDateTime1.resx">
       <DependentUpon>201609040408521_ChangeDateTime1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609041558361_AddRange.resx">
+      <DependentUpon>201609041558361_AddRange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

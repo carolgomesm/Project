@@ -2,6 +2,7 @@
 using MedChartApp.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -45,8 +46,14 @@ namespace MedChartApp.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(BloodWork bloodWork)
         {
+            if (!ModelState.IsValid)
+            {
+                return View ("New", bloodWork);
+            }
+
             if (bloodWork.Id == 0)
             {
                 bloodWork.DateCreated = DateTime.UtcNow;
@@ -68,12 +75,17 @@ namespace MedChartApp.Controllers
                 bloodWorkInDb.RedBloodCellCount = bloodWork.RedBloodCellCount;
                 bloodWorkInDb.PlateletCount = bloodWork.PlateletCount;
 
-
-
-
             }
 
-            _context.SaveChanges();
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                Console.WriteLine(e);
+            }
+
             return RedirectToAction("Index", "BloodWork");
         }
 

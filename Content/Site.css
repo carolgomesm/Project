@@ -24,9 +24,10 @@ textarea {
 }
 
 .title {
-    font-family: 'Baloo Bhaina', cursive;
+   font-family: 'Comfortaa', cursive;
     font-size: 50px;
     margin: 30px;
+    font-weight: bold;
 }
 
 .logo {
@@ -66,7 +67,7 @@ textarea {
 .ui-datepicker {
 background: #fff; /* Old browsers */
 background: #fff -moz-linear-gradient(top, #fcfcfc 0%, #fff 100%); /* FF3.6+ */
-background: #fff -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc)), color-stop(100%,#fff)); /* Chrome,Safari4+ */
+background: #fff -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc)),  color-stop(100%,#fff)); /* Chrome,Safari4+ */
 background: #fff -webkit-linear-gradient(top, #fcfcfc 0%, #fff 100%); /* Chrome10+,Safari5.1+ */
 background: #fff -o-linear-gradient(top, #fcfcfc 0%, #fff 100%); /* Opera11.10+ */
 background: #fff -ms-linear-gradient(top, #fcfcfc 0%, #fff 100%); /* IE10+ */
@@ -105,6 +106,15 @@ text-align: center;
     font-size: 20px;
     padding: 10px;
 font-weight:bold;
+}
+
+.field-validation-error {
+    color:#ff0000;
+
+}
+
+.input-validation-error {
+    border: 2px solid #ff0000;
 }
 
 
