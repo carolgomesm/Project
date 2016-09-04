@@ -4,20 +4,33 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section scripts {
-        
+
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/jqueryui")
     @Styles.Render("~/Content/cssjqryUi")
 
     <script type="text/javascript">
 
-     $(document).ready(function () {
-         $('.date') .datepicker({
-                 dateFormat: "dd/M/yy",
-                 inline: true,
-                 showOtherMonths: true
-             });
-     });
+        $(document)
+            .ready(function() {
+                $('.date')
+                    .datepicker({
+                        dateFormat: "dd/M/yy",
+                        inline: true,
+                        showOtherMonths: true
+                    });
+            });
+
+
+        $(document).on("click", "#cancelBtn", function (e) {
+            var link = $(this).attr("href"); // "get" the intended link in a var
+            e.preventDefault();
+            bootbox.confirm("Are you sure?", function (result) {
+                if (result) {
+                    document.location.href = link;  // if result, "set" the document location       
+                }
+            });
+        });
     </script>
 
 }
@@ -93,7 +106,7 @@
                 <div class="col-md-3 col-sm-12 col-lg-3">
                     <div class="form-group">
                         @Html.LabelFor(a => a.MCHC)
-                        @Html.TextBoxFor(a => a.MCHC, new { @class = "form-control" })
+                        @Html.TextBoxFor(a => a.MCHC, new {@class = "form-control"})
                         @Html.ValidationMessageFor(a => a.MCHC)
                     </div>
                 </div>
@@ -113,9 +126,8 @@
                 </div>
             </div>
             @Html.HiddenFor(a => a.Id)
-            @Html.AntiForgeryToken()
             <button type="submit" class="btn btn-primary">Save</button>
-            <a href="/BloodWork/Index" class="btn btn-danger">Cancel</a>
+            <a  type="button" href="/BloodWork/Index" class="btn btn-danger"  id="cancelBtn">Cancel</a>
         }
     </div>
 </div>

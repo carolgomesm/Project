@@ -5,5 +5,87 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.DateCreated</h2>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h2> Blood Work Details</h2>
+            <div class="row">
+                <div class="col-md-6 col-sm-12 col-lg-6">
+                    <div class="form-group">
+                        @Html.LabelFor(a => a.ExamDate)
+                        @Html.TextBoxFor(a => a.ExamDate, "{0: dd/M/yy}", new { @class = "form-control date", id = "date",  @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 col-lg-6">
+                    <div class="form-group">
+                        @Html.LabelFor(a => a.ResultDate)
+                        @Html.TextBoxFor(a => a.ResultDate, "{0: dd/M/yy}", new { @class = "form-control date", id = "resultDate", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="form-group">
+                        @Html.LabelFor(a => a.Description)
+                        @Html.TextAreaFor(a => a.Description, new { @class = "form-control", id = "description", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-12 col-lg-3">
+                    <div class="form-group">
+                        @Html.LabelFor(a => a.Hemoglobin)
+                        @Html.TextBoxFor(a => a.Hemoglobin, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-lg-3">
+                    <div class="form-group">
+                        @Html.LabelFor(a => a.Hematocrit)
+                        @Html.TextBoxFor(a => a.Hematocrit, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-lg-3">
+                    <div class="form-group">
+                      @Html.LabelFor(a => a.WhiteBloodCellCount)
+                      @Html.TextBoxFor(a => a.WhiteBloodCellCount, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-lg-3">
+                    <div class="form-group">
+                        @Html.LabelFor(a => a.RedBloodCellCount)
+                        @Html.TextBoxFor(a => a.RedBloodCellCount, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-12 col-lg-3">
+                    <div class="form-group">
+                        @Html.LabelFor(a => a.MCV)
+                        @Html.TextBoxFor(a => a.MCV, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+
+                </div>
+                <div class="col-md-3 col-sm-12 col-lg-3">
+                    <div class="form-group">
+                        @Html.LabelFor(a => a.MCHC)
+                        @Html.TextBoxFor(a => a.MCHC, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-lg-3">
+                    <div class="form-group">
+                        @Html.LabelFor(a => a.RDW)
+                        @Html.TextBoxFor(a => a.RDW, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-lg-3">
+                    <div class="form-group">
+                        @Html.LabelFor(a => a.PlateletCount)
+                        @Html.TextBoxFor(a => a.PlateletCount, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <a type="button" href="/BloodWork/Index" class="btn btn-info" id="cancelBtn">Back</a>
+    </div>
+</div>
+
+
 

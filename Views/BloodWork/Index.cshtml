@@ -5,57 +5,71 @@
     ViewBag.Title = "Blood Work";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<div class="form-actions">
+    <a id="newBtn" href="/BloodWork/New" class="btn btn-success">New</a>
+</div>
 <div class="panel panel-default">
     <div class="panel-body">
         <div id ="table" class="table-responsive">
             <table class="table table-hover ">
                 <thead>
                 <tr>
-                    <div class="form-actions">
-                        <a id="newBtn" href="/BloodWork/New" class="btn btn-success">New</a>
-                    </div>
-                </tr>
-                <tr>
-                    <th>Document </th>
+                    <th>Settings </th>
                     <th>Created On</th>
                     <th>Exam Date</th>
                     <th>Description</th>
                 </tr>
                 </thead>
                 <tbody>
-                    @if (!Model.Any())
+                @if (!Model.Any())
+                {
+                    <text> You have no Blood Work History. Save a new one!</text>
+                }
+                else
+                {
+                    foreach (var item in Model)
                     {
-                        <text> You have no Blood Work History. Save a new one!</text>
+                        <tr>
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class ="glyphicon glyphicon-cog"></span>  <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>@Html.ActionLink("Details", "Details", "BloodWork", new { id = item.Id }, null)</li>
+                                        <li>@Html.ActionLink("Edit", "Edit", "BloodWork", new { id = item.Id }, null)</li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td>@item.DateCreated.ToString("dd/M/yy") </td>
+                            <td>@item.ExamDate.ToString("dd/M/yy")</td>
+                            <td id="decriptionTable">@item.Description</td>
+                        </tr>
                     }
-                    else
-                    {
-                        foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class ="glyphicon glyphicon-cog"></span>  <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li>@Html.ActionLink("Details", "Details", "BloodWork", new { id = item.Id }, null)</li>
-                                            <li>@Html.ActionLink("Edit", "Edit", "BloodWork", new { id = item.Id }, null)</li>
-                                        </ul>
-                                    </div>
-                                </td>
-                                <td>@item.DateCreated.ToString("dd/M/yy") </td>
-                                <td>@item.ExamDate.ToString("dd/M/yy")</td>
-                                <td>@item.Description</td>
-                            </tr>
-                        }
 
-                    }
+                }
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $(".table")
+                .DataTable({
+                    "scrollX": false,
+                    "info": false,
+                    "sDom": '<"row view-filter"<"col-sm-12"<"pull-left"l><"pull-right"f><"clearfix">>>t<"row view-pager"<"col-sm-12"<"text-center"ip>>>',
+                    "autoWidth": true,
+                    "aLengthMenu": [[5, 10, 20,-1],  [5, 10, 20, "All"]],
+                    "pageLength": 5,
+         });
+        });
+    </script>
+}
 
     
 

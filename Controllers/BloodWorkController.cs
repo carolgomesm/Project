@@ -46,13 +46,8 @@ namespace MedChartApp.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Save(BloodWork bloodWork)
         {
-            if (!ModelState.IsValid)
-            {
-                return View ("New", bloodWork);
-            }
 
             if (bloodWork.Id == 0)
             {
@@ -66,6 +61,7 @@ namespace MedChartApp.Controllers
                 //Update each field
                 bloodWorkInDb.ExamDate = bloodWork.ExamDate;
                 bloodWorkInDb.ResultDate = bloodWork.ResultDate;
+                bloodWorkInDb.Description = bloodWork.Description;
                 bloodWorkInDb.Hematocrit = bloodWork.Hematocrit;
                 bloodWorkInDb.Hemoglobin = bloodWork.Hemoglobin;
                 bloodWorkInDb.MCV = bloodWork.MCV;
@@ -77,17 +73,27 @@ namespace MedChartApp.Controllers
 
             }
 
-            try
-            {
+           
                 _context.SaveChanges();
-            }
-            catch (DbEntityValidationException e)
-            {
-                Console.WriteLine(e);
-            }
 
             return RedirectToAction("Index", "BloodWork");
         }
+
+        //[HttpPost]
+        //public ActionResult Delete(int id)
+        //{
+
+
+        //    var result = _context.BloodWork.SingleOrDefault(c => c.Id == id);
+
+        //    if (result == null) return HttpNotFound();
+
+            
+
+        //    _context.SaveChanges();
+
+        //    return RedirectToAction("Index", "BloodWork");
+        //}
 
         public ActionResult Edit(int id)
         {
