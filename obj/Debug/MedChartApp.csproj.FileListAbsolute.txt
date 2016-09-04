@@ -80,3 +80,6 @@ C:\Users\chrischu\Desktop\MedChart\MedChartApp\MedChartApp\bin\Microsoft.Owin.Se
 C:\Users\chrischu\Desktop\MedChart\MedChartApp\MedChartApp\obj\Debug\MedChartApp.csprojResolveAssemblyReference.cache
 C:\Users\chrischu\Desktop\MedChart\MedChartApp\MedChartApp\obj\Debug\MedChartApp.dll
 C:\Users\chrischu\Desktop\MedChart\MedChartApp\MedChartApp\obj\Debug\MedChartApp.pdb
+C:\Users\chrischu\Desktop\MedChart\MedChartApp\MedChartApp\obj\Debug\MedChartApp.Migrations.InitialModel.resources
+C:\Users\chrischu\Desktop\MedChart\MedChartApp\MedChartApp\obj\Debug\MedChartApp.csproj.GenerateResource.Cache
+C:\Users\chrischu\Desktop\MedChart\MedChartApp\MedChartApp\obj\Debug\MedChartApp.Migrations.AddRequiredFields.resources

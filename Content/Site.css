@@ -23,4 +23,19 @@ textarea {
     max-width: 280px;
 }
 
+.title {
+    font-family: 'Baloo Bhaina', cursive;
+    font-size: 50px;
+    margin: 30px;
+}
+
+.logo {
+    padding-top: 5px;
+}
+
+#table th {
+    text-align: center;
+}
+
+
 
