@@ -156,6 +156,10 @@ a:hover {
     font-size: 25px;
 }
 
+#goBtn {
+    margin: 20px auto;
+}
+
 footer {
     text-align: center;
 }

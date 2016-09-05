@@ -7,11 +7,11 @@
                 <span class="icon-bar"></span>
             </button>
             @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
-            <a href="/BloodWork/Index"><img class="logo" src="~/Img/logo.png" /></a>
+            <a href="/Home/Index"><img class="logo" src="~/Img/logo.png" /></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Blood Work", "Index", "BloodWork")</li>
+                <li>@Html.ActionLink("Blood Work", "Index", "Home")</li>
             </ul>
             @Html.Partial("_LoginPartial")
         </div>

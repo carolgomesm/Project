@@ -11,7 +11,7 @@ namespace MedChartApp.Controllers
     {
         public ActionResult Index()
         {
-            return RedirectToAction("Index", "BloodWork");
+            return View();
         }
 
         public ActionResult About()
