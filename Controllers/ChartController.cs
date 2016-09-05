@@ -44,6 +44,48 @@ namespace MedChartApp.Controllers
             return Json(chart, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult GetCharWhiteBloodCell()
+        {
+            var chart = _context.BloodWork.Select(a => new { a.WhiteBloodCellCount, a.ResultDate }).ToList();
+
+            return Json(chart, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetCharRedBloodCell()
+        {
+            var chart = _context.BloodWork.Select(a => new { a.RedBloodCellCount, a.ResultDate }).ToList();
+
+            return Json(chart, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetCharMCV()
+        {
+            var chart = _context.BloodWork.Select(a => new { a.MCV, a.ResultDate }).ToList();
+
+            return Json(chart, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetCharMCHC()
+        {
+            var chart = _context.BloodWork.Select(a => new { a.MCHC, a.ResultDate }).ToList();
+
+            return Json(chart, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetCharRDW()
+        {
+            var chart = _context.BloodWork.Select(a => new { a.RDW, a.ResultDate }).ToList();
+
+            return Json(chart, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetCharPlateletCount()
+        {
+            var chart = _context.BloodWork.Select(a => new { a.PlateletCount, a.ResultDate }).ToList();
+
+            return Json(chart, JsonRequestBehavior.AllowGet);
+        }
+
 
 
 

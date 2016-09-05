@@ -14,7 +14,7 @@
 
             $.post('/Chart/GetChart',
                 {},
-                function(data) {
+                function (data) {
 
 
                     var tdata = new google.visualization.DataTable();
@@ -28,8 +28,8 @@
                         var obj = data[i];
                         var date = new Date(obj.ResultDate.match(/\d+/)[0] * 1);
                         console.log(date);
-                        tdata.addRow([date , obj.Hemoglobin]);
-                       
+                        tdata.addRow([date, obj.Hemoglobin]);
+
                     }
 
                     var formatterShort = new google.visualization.DateFormat({ formatType: 'short' });
@@ -77,14 +77,227 @@
                     var chart = new google.visualization.LineChart(document.getElementById('chartdivGetCharHematocrit'));
                     chart.draw(tdata, options);
                 });
+
+            $.post('/Chart/GetCharWhiteBloodCell',
+              {},
+              function (data) {
+
+
+                  var tdata = new google.visualization.DataTable();
+
+
+                  tdata.addColumn('date', 'ResultDate');
+                  tdata.addColumn('number', 'White Blood Cell Count');
+
+
+                  for (var i = 0; i < data.length; i++) {
+                      var obj = data[i];
+                      var date = new Date(obj.ResultDate.match(/\d+/)[0] * 1);
+                      console.log(date);
+                      tdata.addRow([date, obj.WhiteBloodCellCount]);
+
+                  }
+
+                  var formatterShort = new google.visualization.DateFormat({ formatType: 'short' });
+                  formatterShort.format(tdata, 1);
+
+                  var options = {
+                      title: "White Blood Cell Count",
+                      curveType: 'function',
+                      legend: { position: 'bottom' }
+                  };
+
+                  var chart = new google.visualization.LineChart(document.getElementById('chartdivGetWhiteBlood'));
+                  chart.draw(tdata, options);
+              });
+
+            $.post('/Chart/GetCharRedBloodCell',
+              {},
+              function (data) {
+
+
+                  var tdata = new google.visualization.DataTable();
+
+
+                  tdata.addColumn('date', 'ResultDate');
+                  tdata.addColumn('number', 'Red Blood Cell Count');
+
+
+                  for (var i = 0; i < data.length; i++) {
+                      var obj = data[i];
+                      var date = new Date(obj.ResultDate.match(/\d+/)[0] * 1);
+                      console.log(date);
+                      tdata.addRow([date, obj.RedBloodCellCount]);
+
+                  }
+
+                  var formatterShort = new google.visualization.DateFormat({ formatType: 'short' });
+                  formatterShort.format(tdata, 1);
+
+                  var options = {
+                      title: "Red Blood Cell Count",
+                      curveType: 'function',
+                      legend: { position: 'bottom' }
+                  };
+
+                  var chart = new google.visualization.LineChart(document.getElementById('chartdivGetRedBlood'));
+                  chart.draw(tdata, options);
+              });
+
+            $.post('/Chart/GetCharMCV',
+              {},
+              function (data) {
+
+
+                  var tdata = new google.visualization.DataTable();
+
+
+                  tdata.addColumn('date', 'ResultDate');
+                  tdata.addColumn('number', 'MCV');
+
+
+                  for (var i = 0; i < data.length; i++) {
+                      var obj = data[i];
+                      var date = new Date(obj.ResultDate.match(/\d+/)[0] * 1);
+                      tdata.addRow([date, obj.MCV]);
+
+                  }
+
+                  var formatterShort = new google.visualization.DateFormat({ formatType: 'short' });
+                  formatterShort.format(tdata, 1);
+
+                  var options = {
+                      title: "MCV",
+                      curveType: 'function',
+                      legend: { position: 'bottom' }
+                  };
+
+                  var chart = new google.visualization.LineChart(document.getElementById('chartdivMCV'));
+                  chart.draw(tdata, options);
+              });
+
+            $.post('/Chart/GetCharMCHC',
+             {},
+             function (data) {
+
+
+                 var tdata = new google.visualization.DataTable();
+
+
+                 tdata.addColumn('date', 'ResultDate');
+                 tdata.addColumn('number', 'MCHC');
+
+
+                 for (var i = 0; i < data.length; i++) {
+                     var obj = data[i];
+                     var date = new Date(obj.ResultDate.match(/\d+/)[0] * 1);
+                     tdata.addRow([date, obj.MCHC]);
+
+                 }
+
+                 var formatterShort = new google.visualization.DateFormat({ formatType: 'short' });
+                 formatterShort.format(tdata, 1);
+
+                 var options = {
+                     title: "MCHC",
+                     curveType: 'function',
+                     legend: { position: 'bottom' }
+                 };
+
+                 var chart = new google.visualization.LineChart(document.getElementById('chartdivMCHC'));
+                 chart.draw(tdata, options);
+             });
+
+            $.post('/Chart/GetCharRDW',
+             {},
+             function (data) {
+
+
+                 var tdata = new google.visualization.DataTable();
+
+
+                 tdata.addColumn('date', 'ResultDate');
+                 tdata.addColumn('number', 'RDW');
+
+
+                 for (var i = 0; i < data.length; i++) {
+                     var obj = data[i];
+                     var date = new Date(obj.ResultDate.match(/\d+/)[0] * 1);
+                     tdata.addRow([date, obj.RDW]);
+
+                 }
+
+                 var formatterShort = new google.visualization.DateFormat({ formatType: 'short' });
+                 formatterShort.format(tdata, 1);
+
+                 var options = {
+                     title: "RDW",
+                     curveType: 'function',
+                     legend: { position: 'bottom' }
+                 };
+
+                 var chart = new google.visualization.LineChart(document.getElementById('chartdivRWD'));
+                 chart.draw(tdata, options);
+             });
+
+            $.post('/Chart/GetCharPlateletCount',
+           {},
+           function (data) {
+
+
+               var tdata = new google.visualization.DataTable();
+
+
+               tdata.addColumn('date', 'ResultDate');
+               tdata.addColumn('number', 'Platelet Count');
+
+
+               for (var i = 0; i < data.length; i++) {
+                   var obj = data[i];
+                   var date = new Date(obj.ResultDate.match(/\d+/)[0] * 1);
+                   tdata.addRow([date, obj.PlateletCount]);
+
+               }
+
+               var formatterShort = new google.visualization.DateFormat({ formatType: 'short' });
+               formatterShort.format(tdata, 1);
+
+               var options = {
+                   title: "Platelet Count",
+                   curveType: 'function',
+                   legend: { position: 'bottom' }
+               };
+
+               var chart = new google.visualization.LineChart(document.getElementById('chartdivPlatelet'));
+               chart.draw(tdata, options);
+           });
         }
 
     </script>
-}   
+}
 
-
-<h2>Report</h2>
-<a id="newBtn" href="/BloodWork/Index" class="btn btn-primary">Home</a>
-<div id="chartdiv" style="width:900px; height:500px"></div>
-<hr/>
-<div id="chartdivGetCharHematocrit" style="width:900px; height:500px"></div>
+<div class="form-actions">
+    <a id="newBtn" href="/BloodWork/Index" class="btn btn-success">Home</a>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div id="charts">
+            <h2>Report</h2>
+            <div id="chartdiv" style="width: 900px; height: 500px"></div>
+            <hr />
+            <div id="chartdivGetCharHematocrit" style="width: 900px; height: 500px"></div>
+            <hr />
+            <div id="chartdivGetWhiteBlood" style="width: 900px; height: 500px"></div>
+            <hr />
+            <div id="chartdivGetRedBlood" style="width: 900px; height: 500px"></div>
+            <hr />
+            <div id="chartdivMCV" style="width: 900px; height: 500px"></div>
+            <hr />
+            <div id="chartdivMCHC" style="width: 900px; height: 500px"></div>
+            <hr />
+            <div id="chartdivRWD" style="width: 900px; height: 500px"></div>
+            <hr />
+            <div id="chartdivPlatelet" style="width: 900px; height: 500px"></div>
+        </div>
+    </div>
+</div>
