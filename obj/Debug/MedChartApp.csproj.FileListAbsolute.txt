@@ -87,3 +87,4 @@ C:\Users\chrischu\Desktop\MedChart\MedChartApp\MedChartApp\obj\Debug\MedChartApp
 C:\Users\chrischu\Desktop\MedChart\MedChartApp\MedChartApp\obj\Debug\MedChartApp.Migrations.ChangeDateTime.resources
 C:\Users\chrischu\Desktop\MedChart\MedChartApp\MedChartApp\obj\Debug\MedChartApp.Migrations.ChangeDateTime1.resources
 C:\Users\chrischu\Desktop\MedChart\MedChartApp\MedChartApp\obj\Debug\MedChartApp.Migrations.AddRange.resources
+C:\Users\chrischu\Desktop\MedChart\MedChartApp\MedChartApp\obj\Debug\MedChartApp.Migrations.ChangedAttributes.resources

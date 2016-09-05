@@ -1,0 +1,90 @@
+﻿@model MedChartApp.Models.BloodWork
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+
+    <script type="text/javascript">
+        google.load("visualization", "1", { packages: ["corechart"] });
+        google.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            $.post('/Chart/GetChart',
+                {},
+                function(data) {
+
+
+                    var tdata = new google.visualization.DataTable();
+
+
+                    tdata.addColumn('date', 'ResultDate');
+                    tdata.addColumn('number', 'Hemoglobin');
+
+
+                    for (var i = 0; i < data.length; i++) {
+                        var obj = data[i];
+                        var date = new Date(obj.ResultDate.match(/\d+/)[0] * 1);
+                        console.log(date);
+                        tdata.addRow([date , obj.Hemoglobin]);
+                       
+                    }
+
+                    var formatterShort = new google.visualization.DateFormat({ formatType: 'short' });
+                    formatterShort.format(tdata, 1);
+
+                    var options = {
+                        title: "Hemoglobin",
+                        curveType: 'function',
+                        legend: { position: 'bottom' }
+                    };
+
+                    var chart = new google.visualization.LineChart(document.getElementById('chartdiv'));
+                    chart.draw(tdata, options);
+                });
+
+            $.post('/Chart/GetCharHematocrit',
+                {},
+                function (data) {
+
+
+                    var tdata = new google.visualization.DataTable();
+
+
+                    tdata.addColumn('date', 'ResultDate');
+                    tdata.addColumn('number', 'Hematocrit');
+
+
+                    for (var i = 0; i < data.length; i++) {
+                        var obj = data[i];
+                        var date = new Date(obj.ResultDate.match(/\d+/)[0] * 1);
+                        console.log(date);
+                        tdata.addRow([date, obj.Hematocrit]);
+
+                    }
+
+                    var formatterShort = new google.visualization.DateFormat({ formatType: 'short' });
+                    formatterShort.format(tdata, 1);
+
+                    var options = {
+                        title: "Hematocrit",
+                        curveType: 'function',
+                        legend: { position: 'bottom' }
+                    };
+
+                    var chart = new google.visualization.LineChart(document.getElementById('chartdivGetCharHematocrit'));
+                    chart.draw(tdata, options);
+                });
+        }
+
+    </script>
+}   
+
+
+<h2>Report</h2>
+<a id="newBtn" href="/BloodWork/Index" class="btn btn-primary">Home</a>
+<div id="chartdiv" style="width:900px; height:500px"></div>
+<hr/>
+<div id="chartdivGetCharHematocrit" style="width:900px; height:500px"></div>

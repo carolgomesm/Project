@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BloodWorkController.cs" />
+    <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -226,10 +227,15 @@
     <Compile Include="Migrations\201609041558361_AddRange.Designer.cs">
       <DependentUpon>201609041558361_AddRange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609050113571_ChangedAttributes.cs" />
+    <Compile Include="Migrations\201609050113571_ChangedAttributes.Designer.cs">
+      <DependentUpon>201609050113571_ChangedAttributes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BloodWork.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\DatesResultAndExam.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
@@ -532,6 +538,8 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\BloodWork\Details.cshtml" />
     <Content Include="Views\BloodWork\New.cshtml" />
+    <Content Include="Views\BloodWork\Report.cshtml" />
+    <Content Include="Views\Chart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -562,6 +570,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609041558361_AddRange.resx">
       <DependentUpon>201609041558361_AddRange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609050113571_ChangedAttributes.resx">
+      <DependentUpon>201609050113571_ChangedAttributes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

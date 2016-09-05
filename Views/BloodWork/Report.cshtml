@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+
+    <script type="text/javascript">
+    google.load("visualization", "1", { packages: ["corechart"] });
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+        $.post('/BloodWork/GetChart',
+            {},
+            function(data) {
+                var tdata = new google.visualization.DataTable();
+
+                tdata.addRow('int', 'Hemoglobin');
+                tdata.AddColum('DateTime', 'ExamDate');
+
+                for (var i = 0; i < data.length; i++) {
+                    tdata.addRow([data[i].Name, data[i].Value]);
+                }
+
+                var options = {
+                    title: "Hemoglobin",
+                    curveType: 'function',
+                    legend: { position: 'bottom' }
+                };
+
+                var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+                chart.draw(tdata, options);
+            });
+
+        }
+    </script>
+}
+
+
+<h2>Report</h2>
+
+<div id="chartdiv" style="width:900px; height:500px"></div>

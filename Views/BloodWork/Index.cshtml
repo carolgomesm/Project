@@ -23,6 +23,7 @@
 }
 <div class="form-actions">
     <a id="newBtn" href="/BloodWork/New" class="btn btn-success">New</a>
+    <a id="newBtn" href="/Chart/Index" class="btn btn-info">Report</a>
 </div>
 <div class="panel panel-default">
     <div class="panel-body">
@@ -53,7 +54,7 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li>@Html.ActionLink("Details", "Details", "BloodWork", new { id = item.Id }, null)</li>
-                                        <li>@Html.ActionLink("Edit", "Edit", "BloodWork", new { id = item.Id }, null)</li>
+                                        <li>@Html.ActionLink("Edit", "Edit", "BloodWork", new { id = item.Id }, null)</li>                   
                                     </ul>
                                 </div>
                             </td>
