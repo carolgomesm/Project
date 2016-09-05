@@ -6,11 +6,12 @@ using System.Web.Mvc;
 
 namespace MedChartApp.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "BloodWork");
         }
 
         public ActionResult About()

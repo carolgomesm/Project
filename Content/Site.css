@@ -75,6 +75,11 @@ textarea {
     max-width: 100px;
 }
 
+#charts {
+     width: 100%;
+    margin: 0 auto;
+}
+
 /*Date Picker*/
 .ui-datepicker {
 background: #fff; /* Old browsers */
@@ -147,7 +152,13 @@ a:hover {
     color: #D8DDEF !important;
 }
 
+#message {
+    font-size: 25px;
+}
 
+footer {
+    text-align: center;
+}
 
 
 

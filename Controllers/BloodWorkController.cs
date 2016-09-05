@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -22,6 +23,7 @@ namespace MedChartApp.Controllers
         {
             _context.Dispose();
         }
+
 
         public ViewResult Index()
         {
@@ -79,21 +81,34 @@ namespace MedChartApp.Controllers
             return RedirectToAction("Index", "BloodWork");
         }
 
-        //[HttpPost]
-        //public ActionResult Delete(int id)
-        //{
+        //GET : /Cursos/Delete/
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            BloodWork result = _context.BloodWork.Find(id);
+            if (result == null)
+            {
+                return HttpNotFound();
+            }
 
+            return View("ConfirmDelete");
+        }
 
-        //    var result = _context.BloodWork.SingleOrDefault(c => c.Id == id);
+        [HttpPost, ActionName("Delete")]
+        public ActionResult ConfirmDelete(int id, BloodWork result)
+        {
+            result = _context.BloodWork.Find(id);
 
-        //    if (result == null) return HttpNotFound();
+            if (result == null) return HttpNotFound();
 
-            
+            _context.BloodWork.Remove(result);
+            _context.SaveChanges();
 
-        //    _context.SaveChanges();
-
-        //    return RedirectToAction("Index", "BloodWork");
-        //}
+            return RedirectToAction("Index", "BloodWork");
+        }
 
         public ActionResult Edit(int id)
         {

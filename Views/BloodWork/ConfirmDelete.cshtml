@@ -1,0 +1,19 @@
+﻿@model MedChartApp.Models.BloodWork
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Delete", "BloodWork"))
+{
+    <div class="alert alert-danger" id="message">
+        <p class="text-center"> Are you sure you want do delete this record?</p><br/>
+        <p class="text-center"> Once you delete you will no longer have access to your Blood Test information</p>
+    </div>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a type="button" href="/BloodWork/Index" class="btn btn-primary" id="cancelBtn">Cancel</a>
+    </div>
+    
+}

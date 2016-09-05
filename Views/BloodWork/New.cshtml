@@ -15,7 +15,7 @@
             .ready(function() {
                 $('.date')
                     .datepicker({
-                        dateFormat: "dd/mm/y",
+                        dateFormat: "m/dd/y",
                         inline: true,
                         //showOtherMonths: true
                     });
@@ -43,14 +43,14 @@
                 <div class="col-md-6 col-sm-12 col-lg-6">
                     <div class="form-group">
                         @Html.LabelFor(a => a.ExamDate)
-                        @Html.TextBoxFor(a => a.ExamDate, "{0: dd/M/yy}" , new { @class = "form-control date",  id = "date" })
+                        @Html.TextBoxFor(a => a.ExamDate, "{0: M/dd/yy}" , new { @class = "form-control date",  id = "date" })
                         @Html.ValidationMessageFor(a => a.ExamDate)
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12 col-lg-6">
                     <div class="form-group">
                         @Html.LabelFor(a => a.ResultDate)
-                        @Html.TextBoxFor(a => a.ResultDate, "{0: dd/M/yy}" , new { @class = "form-control date", id = "resultDate" })
+                        @Html.TextBoxFor(a => a.ResultDate, "{0: M/dd/yy}" , new { @class = "form-control date", id = "resultDate" })
                         @Html.ValidationMessageFor(a => a.ResultDate)
                     </div>
                 </div>

@@ -38,33 +38,37 @@
                 </tr>
                 </thead>
                 <tbody>
-                @if (!Model.Any())
-                {
-                    <text> You have no Blood Work History. Save a new one!</text>
-                }
-                else
-                {
-                    foreach (var item in Model)
+                    @if (!Model.Any())
                     {
-                        <tr>
-                            <td>
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class ="glyphicon glyphicon-cog"></span>  <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li>@Html.ActionLink("Details", "Details", "BloodWork", new { id = item.Id }, null)</li>
-                                        <li>@Html.ActionLink("Edit", "Edit", "BloodWork", new { id = item.Id }, null)</li>                   
-                                    </ul>
-                                </div>
-                            </td>
-                            <td>@item.DateCreated.ToString("dd/M/yy") </td>
-                            <td>@item.ExamDate.ToString("dd/M/yy")</td>
-                            <td id="decriptionTable">@item.Description</td>
-                        </tr>
+                        <div class="alert alert-warning">
+                            <p class="text-center"> You have no Blood Work History. Create a new one!</p>
+                        </div>
+                        
                     }
+                    else
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="glyphicon glyphicon-cog"></span>  <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>@Html.ActionLink("Details", "Details", "BloodWork", new { id = item.Id }, null)</li>
+                                            <li>@Html.ActionLink("Edit", "Edit", "BloodWork", new { id = item.Id }, null)</li>
+                                            <li>@Html.ActionLink("Delete", "Delete", "BloodWork", new { id = item.Id }, null)</li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td>@item.DateCreated.ToString("M/dd/yy") </td>
+                                <td>@item.ExamDate.ToString("M/dd/yy")</td>
+                                <td id="decriptionTable">@item.Description</td>
+                            </tr>
+                        }
 
-                }
+                    }
                 </tbody>
             </table>
         </div>

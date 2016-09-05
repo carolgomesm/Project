@@ -401,6 +401,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Img\banner1 %281%29.jpg" />
+    <Content Include="Img\family-beach-.jpg" />
     <Content Include="Img\logo.png" />
     <Content Include="Img\ui-icons_ffffff_256x240.png" />
     <Content Include="obj\Debug\MedChartApp.csproj.FileListAbsolute.txt" />
@@ -540,6 +542,7 @@
     <Content Include="Views\BloodWork\New.cshtml" />
     <Content Include="Views\BloodWork\Report.cshtml" />
     <Content Include="Views\Chart\Index.cshtml" />
+    <Content Include="Views\BloodWork\ConfirmDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
